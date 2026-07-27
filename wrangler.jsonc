@@ -10,6 +10,10 @@
 	"observability": {
 		"enabled": true
 	},
+	"cf": {
+		"cacheEverything": false,
+		"cacheTtl": 0, // don’t store at edge
+	},
     "assets": {
         "directory": "./",
         "binding": "ASSETS"
