@@ -5,7 +5,7 @@
 {
 	"$schema": "node_modules/wrangler/config-schema.json",
 	"name": "geolocation-hello-world-2",
-	"main": "src/forward.ts",
+	"main": "src/index.ts",
 	"compatibility_date": "2025-04-03",
 	"observability": {
 		"enabled": true
