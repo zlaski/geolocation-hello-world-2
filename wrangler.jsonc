@@ -5,7 +5,7 @@
 {
 	"$schema": "node_modules/wrangler/config-schema.json",
 	"name": "geolocation-hello-world-2",
-	"main": "src/index.ts",
+	"main": "index.ts",
 	"compatibility_date": "2025-04-03",
 	"observability": {
 		"enabled": true
@@ -15,7 +15,7 @@
 		"cacheTtl": 0, // don’t store at edge
 	},
     "assets": {
-        "directory": "./",
+        "directory": "./wwwroot/",
         "binding": "ASSETS"
     }
 }
