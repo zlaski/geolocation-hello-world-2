@@ -5,15 +5,15 @@
 {
 	"$schema": "node_modules/wrangler/config-schema.json",
 	"name": "geolocation-hello-world-2",
-	"main": "index.ts",
+	"main": "wwwroot/visitor-tracker.ts",
 	"compatibility_date": "2025-04-03",
 	"observability": {
 		"enabled": true
 	},
-	"cf": {
-		"cacheEverything": false,
-		"cacheTtl": 0, // don’t store at edge
-	},
+	"send_email": [
+		// Send to any verified destination
+		{ "name": "EMAIL" }
+	],
     "assets": {
         "directory": "./wwwroot/",
         "binding": "ASSETS"
