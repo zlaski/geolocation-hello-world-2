@@ -40,6 +40,7 @@ export default {
       <body>
         <h1>Geolocation: Hello World!</h1>
         <p>You now have access to geolocation data about where your user is visiting from.</p>
+		<hr/>
         ${html_content}
       </body>`;
 
@@ -69,7 +70,7 @@ export default {
   	  }
 	  catch (err) {
         console.error("Error sending email: ", err);
-        return new Response("Error sending email: " + err);
+        return new Response("Error sending email: " + JSON.stringify(err));
 	  }
       try {
         // Forward the request to the ASSETS binding
