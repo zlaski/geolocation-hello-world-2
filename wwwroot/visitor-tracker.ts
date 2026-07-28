@@ -43,11 +43,11 @@ export default {
         ${html_content}
       </body>`;
 
-		return new Response(html, {
-			headers: {
-				"content-type": "text/html;charset=UTF-8",
-			},
-		});
+		// return new Response(html, {
+			// headers: {
+				// "content-type": "text/html;charset=UTF-8",
+			// },
+		// });
 	
       try {
         const response = await env.EMAIL.send({
