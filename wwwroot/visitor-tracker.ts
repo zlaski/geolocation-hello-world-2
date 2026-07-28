@@ -70,7 +70,7 @@ export default {
   	  }
 	  catch (err) {
         console.error("Error sending email: ", err);
-        return new Response("Error sending email: " + JSON.stringify(err));
+        return new Response("Error sending email: " + JSON.stringify(err.json()));
 	  }
       try {
         // Forward the request to the ASSETS binding
