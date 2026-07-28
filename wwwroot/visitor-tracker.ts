@@ -1,3 +1,6 @@
+// https://geolocation-hello-world-2.zlaski.workers.dev/
+// https://github.com/zlaski/geolocation-hello-world-2
+
 // export interface Env {
   // // ASSETS binding is automatically injected by Cloudflare when configured in wrangler.toml
   // ASSETS: {
@@ -5,8 +8,11 @@
   // };
 // }
 
+const YOUR_DOMAIN = "sacramento-choo-choo.com"; // Replace with your verified domain
+const RECIPIENT_EMAIL = "zlaski@ziemas.net"; // Replace with your email to receive test emails
+
 export default {
-	async fetch(request): Promise<Response> {
+	async fetch(request: Request, env: Env): Promise<Response> {
 
 		let html_content = "";
 		let html_style =
@@ -36,13 +42,41 @@ export default {
         <p>You now have access to geolocation data about where your user is visiting from.</p>
         ${html_content}
       </body>`;
+
+		return new Response(html, {
+			headers: {
+				"content-type": "text/html;charset=UTF-8",
+			},
+		});
+	
+      try {
+        const response = await env.EMAIL.send({
+			to: RECIPIENT_EMAIL,
+			from: "webmaster@${YOUR_DOMAIN}",
+			subject: "Welcome to our service!",
+			html: "<h1>Welcome!</h1><p>Thanks for signing up.</p>",
+			text: "Welcome! Thanks for signing up.",
+		});
 		
+		return new Response(
+			JSON.stringify({
+				success: true,
+				emailId: response.messageId,
+				sendResponse: response
+			}),
+		);
+
+  	  }
+	  catch (err) {
+        console.error("Error sending email: ", err);
+        return new Response("Error sending email: " + err);
+	  }
       try {
         // Forward the request to the ASSETS binding
         return await env.ASSETS.fetch(request);
       } catch (err) {
-        console.error("Error fetching asset:", err);
-        return new Response("Asset not found", { status: 404 });
+        console.error("Error fetching asset: ", err);
+        return new Response("Error fetching asset: " + err, { status: 404 });
       }
 
 	}

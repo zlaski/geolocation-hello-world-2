@@ -12,7 +12,10 @@
 	},
 	"send_email": [
 		// Send to any verified destination
-		{ "name": "EMAIL" }
+		{ 
+			"name": "EMAIL"
+			// "remote": true
+		}
 	],
     "assets": {
         "directory": "./wwwroot/",
