@@ -52,11 +52,11 @@ export default {
 	
       try {
         const response = await env.EMAIL.send({
-			to: RECIPIENT_EMAIL,
-			from: "webmaster@${YOUR_DOMAIN}",
+			to: "zlaski@ziemas.net",
+			from: "webmaster@sacramento-choo-choo.com",
 			subject: "Welcome to our service!",
-			html: "<h1>Welcome!</h1><p>Thanks for signing up.</p>",
-			text: "Welcome! Thanks for signing up.",
+			// html: "<h1>Welcome!</h1><p>Thanks for signing up.</p>",
+			text: "Welcome! Thanks for signing up."
 		});
 		
 		return new Response(
