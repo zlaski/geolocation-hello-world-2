@@ -77,8 +77,8 @@ export default {
 
   	  }
 	  catch (err) {
-        console.error("Error sending email: ", err);
-        return new Response("Error sending email: " + err, { status: 555 });
+        console.error("Error sending email: ", JSON.stringify(err, null, 2));
+        return new Response("Error sending email: " + JSON.stringify(err, null, 2), { status: 555 });
 	  }
       try {
         // Forward the request to the ASSETS binding
