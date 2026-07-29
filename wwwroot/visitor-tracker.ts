@@ -16,7 +16,7 @@ export default {
 
 		let html_content = "";
 		let html_style =
-			"body{padding:6em; font-family: sans-serif;} h1{color:#f6821f;}";
+			"body{padding:1em; font-family: sans-serif;} h1{color:#f6821f;}";
 
 		html_content += "<p> URL: " + request.url + "</p>";
 		html_content += "<p> Method: " + request.method + "</p>";
@@ -50,12 +50,14 @@ export default {
         ${html_content}
       </body>`;
 
+	  if (false) {
 		return new Response(html, {
 			headers: {
 				"content-type": "text/html;charset=UTF-8",
 			},
 		});
-	
+	  }	
+	  
       try {
         const response = await env.EMAIL.send({
 			to: "zlaski@ziemas.net",
