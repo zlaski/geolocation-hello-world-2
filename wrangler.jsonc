@@ -13,7 +13,8 @@
 	"send_email": [
 		// Send to any verified destination
 		{ 
-			"name": "EMAIL"
+			"name": "EMAIL",
+			"allowed_destination_addresses": ["zlaski@ziemas.net"]
 			// "remote": true
 		}
 	],
