@@ -18,12 +18,11 @@ export default {
 		let html_style =
 			"body{padding:6em; font-family: sans-serif;} h1{color:#f6821f;}";
 
-        const ip = request.headers.get("cf-connecting-ipv6") || request.headers.get("cf-connecting-ip");
-		
 		html_content += "<p> URL: " + request.url + "</p>";
 		html_content += "<p> Method: " + request.method + "</p>";
 		html_content += "<p> User-Agent: " + request.headers.get("user-agent") + "</p>";
-		html_content += "<p> IP: " + ip + "</p>";
+		html_content += "<p> IPv4: " + request.headers.get("cf-connecting-ip") + "</p>";
+		html_content += "<p> IPv6: " + request.headers.get("cf-connecting-ipv6") + "</p>";
 		html_content += "<hr/>";
 		html_content += "<p> Colocation (IATA): " + request.cf.colo + "</p>";
 		html_content += "<p> ISP: " + request.cf.asOrganization + "</p>";
