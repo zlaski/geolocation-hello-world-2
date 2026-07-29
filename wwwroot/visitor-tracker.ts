@@ -19,8 +19,12 @@ export default {
 			"body{padding:6em; font-family: sans-serif;} h1{color:#f6821f;}";
 
 		html_content += "<p> Url: " + request.url + "</p>";
+		html_content += "<p> Method: " + request.method + "</p>";
+		html_content += "<p> User-Agent: " + request.headers.user-agent + "</p>";
 		html_content += "<hr/>";
 		html_content += "<p> Colo: " + request.cf.colo + "</p>";
+		html_content += "<p> AsOrganization: " + request.cf.asOrganization + "</p>";
+		html_content += "<p> Asn: " + request.cf.asn + "</p>";
 		html_content += "<p> Country: " + request.cf.country + "</p>";
 		html_content += "<p> City: " + request.cf.city + "</p>";
 		html_content += "<p> Continent: " + request.cf.continent + "</p>";
@@ -70,7 +74,7 @@ export default {
   	  }
 	  catch (err) {
         console.error("Error sending email: ", err);
-        return new Response("Error sending email: " + JSON.stringify(err.json()));
+        return new Response("Error sending email: ${err}", { status: 555 });
 	  }
       try {
         // Forward the request to the ASSETS binding
