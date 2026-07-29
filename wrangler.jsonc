@@ -14,7 +14,8 @@
 		// Send to any verified destination
 		{ 
 			"name": "EMAIL",
-			"allowed_destination_addresses": ["zlaski@ziemas.net"]
+			"destination_address": "zlaski@ziemas.net"
+			// "allowed_destination_addresses": ["zlaski@ziemas.net"]
 			// "remote": true
 		}
 	],
