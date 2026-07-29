@@ -18,23 +18,26 @@ export default {
 		let html_style =
 			"body{padding:6em; font-family: sans-serif;} h1{color:#f6821f;}";
 
-		html_content += "<p> Url: " + request.url + "</p>";
+        const ip = request.headers.get("cf-connecting-ipv6") || request.headers.get("cf-connecting-ip");
+		
+		html_content += "<p> URL: " + request.url + "</p>";
 		html_content += "<p> Method: " + request.method + "</p>";
 		html_content += "<p> User-Agent: " + request.headers.get("user-agent") + "</p>";
+		html_content += "<p> IP: " + ip + "</p>";
 		html_content += "<hr/>";
-		html_content += "<p> Colo: " + request.cf.colo + "</p>";
-		html_content += "<p> AsOrganization: " + request.cf.asOrganization + "</p>";
-		html_content += "<p> Asn: " + request.cf.asn + "</p>";
+		html_content += "<p> Colocation (IATA): " + request.cf.colo + "</p>";
+		html_content += "<p> ISP: " + request.cf.asOrganization + "</p>";
+		html_content += "<p> ASN: " + request.cf.asn + "</p>";
 		html_content += "<p> Country: " + request.cf.country + "</p>";
 		html_content += "<p> City: " + request.cf.city + "</p>";
 		html_content += "<p> Continent: " + request.cf.continent + "</p>";
 		html_content += "<p> Latitude: " + request.cf.latitude + "</p>";
 		html_content += "<p> Longitude: " + request.cf.longitude + "</p>";
-		html_content += "<p> PostalCode: " + request.cf.postalCode + "</p>";
-		html_content += "<p> MetroCode: " + request.cf.metroCode + "</p>";
+		html_content += "<p> Postal code: " + request.cf.postalCode + "</p>";
+		html_content += "<p> Metro code: " + request.cf.metroCode + "</p>";
 		html_content += "<p> Region: " + request.cf.region + "</p>";
-		html_content += "<p> RegionCode: " + request.cf.regionCode + "</p>";
-		html_content += "<p> Timezone: " + request.cf.timezone + "</p>";
+		html_content += "<p> Region code: " + request.cf.regionCode + "</p>";
+		html_content += "<p> Time zone: " + request.cf.timezone + "</p>";
 
 		let html = `<!DOCTYPE html>
       <head>
