@@ -20,7 +20,7 @@ export default {
 
 		html_content += "<p> Url: " + request.url + "</p>";
 		html_content += "<p> Method: " + request.method + "</p>";
-		html_content += "<p> User-Agent: " + request.headers.user-agent + "</p>";
+		html_content += "<p> User-Agent: " + request.headers.get("user-agent") + "</p>";
 		html_content += "<hr/>";
 		html_content += "<p> Colo: " + request.cf.colo + "</p>";
 		html_content += "<p> AsOrganization: " + request.cf.asOrganization + "</p>";
